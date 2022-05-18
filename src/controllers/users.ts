@@ -1,10 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 import IToken from '../interfaces/tokenInterface';
 import service from '../services/users';
 
+dotenv.config();
+
 const create = async (req:Request, res:Response, _next:NextFunction) => {
-  const secret = 'meu_segredo';
+  const secret = process.env.MEU_SEGREDO || 'MEU_SEGREDO';
 
   const jwtConfig:IToken = {
     expiresIn: '60m',
