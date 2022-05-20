@@ -19,6 +19,12 @@ const create = async (req:Request, res:Response, _next:NextFunction) => {
   return res.status(201).json({ token });
 };
 
+const getOrders = async (req:Request, res:Response, _next:NextFunction) => {
+  const orders = await service.getOrders();
+  return res.status(200).send(orders);
+};
+
 export default {
   create,
+  getOrders,
 };

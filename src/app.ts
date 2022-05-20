@@ -25,4 +25,6 @@ app.post(
   usersControler.create,
 );
 
+app.get('/orders', usersControler.getOrders);
+
 export default app;
